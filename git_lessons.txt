@@ -1,0 +1,86 @@
+# Step 1
+
+# Create a directory folder you would like to make a repo
+
+# Initialize Git in the that folder
+git init
+
+# Create a new file, in this lesson it is example_file.py
+
+# Add all files in the folder to staging
+git add .
+
+# Commit with a message
+git commit -m "Initial commit"
+
+# Link to GitHub repository (replace with your URL)
+git remote add origin https://github.com/harleychillin93/git_lesson.git
+
+# Push the changes to GitHub
+git push -u origin main
+# The -u option sets origin as the default remote, so next time, you can push changes just with git push.
+# If that doesnt work, try git branch to see if the branch is names main or master
+
+# Step 2, clone a repo, make a change, and push the update
+git clone https://github.com/harleychillin93/polyArb.git 
+
+# Make changes like make a .env file and add it to the gitignore file.
+
+# Then add, commit and push the update
+git add .
+git commit -m "test"
+# Since you recently cloned, you don't need to specify origin
+git push
+
+
+# Step 3. Create Branches and Manage Changes
+# Create and Switch to a New Branch
+# To make changes without affecting the main branch, create a new branch. In the terminal:
+
+# Create a new branch
+git checkout -b new-branch
+
+# After this youre editing the code in a a branch called new-branch. You are no longer in the main/master branch
+# (edit some part of py or txt files)
+
+# Now you can add and commit these change
+git add .
+git commit -m "Add new feature"
+git push -u origin new-branch
+
+# Delete a branch locally
+git branch -d new-branch
+
+# Delete a branch from GitHub
+git push origin --delete new-branch
+
+# Now do it again but do not delete the branch, examine it on github, then merge it
+# Create a new branch
+git checkout -b newer_branch
+
+# After this youre editing the code in a a branch called newer-branch. You are no longer in the main/master branch
+# (edit some part of py or txt files)
+# Now you can add and commit these change
+git add .
+git commit -m "Add new feature"
+git push -u origin newer_branch
+
+# After this last bit you can go to github and merge on the online repo
+
+# You can also merge locally, which we will do
+git checkout main
+# Merge feature-branch into main
+git merge newer_branch
+# Push the update
+git push origin master
+# If you merged on github, the push above wont work
+
+# Update Local Repository with Remote Changes
+# If other collaborators have made changes to the main branch, or if a pull request has been merged, you’ll want to sync your local copy.
+
+# Switch to the Main Branch
+# First, switch back to the main branch (assuming your main branch is called main):
+git checkout master
+# Pull Changes from GitHub
+# Fetch and merge any changes from the main branch on GitHub:
+git pull origin master
